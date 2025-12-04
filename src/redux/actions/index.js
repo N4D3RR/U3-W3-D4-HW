@@ -41,7 +41,7 @@ export const fetchJobsAction = (query) => {
         }
       })
       .then((data) => {
-        dispatch(getJobsAction(data))
+        dispatch(getJobsAction(data.data))
       })
       .catch((err) => {
         dispatch(getJobsErrorAction())

@@ -9,15 +9,15 @@ const favsReducer = function (currentState = initialState, action) {
     case ADD_TO_FAVS:
       return {
         ...currentState,
-        content: [currentState.content, action.payload],
+        content: [...currentState.content, action.payload],
       }
 
     case REMOVE_FROM_FAVS:
       return {
         ...currentState,
-        content: currentState.content.filter((company) => {
-          company !== action.payload
-        }),
+        content: currentState.content.filter(
+          (company) => company !== action.payload
+        ),
       }
 
     default:

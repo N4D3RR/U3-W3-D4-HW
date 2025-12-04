@@ -6,9 +6,7 @@ import { fetchJobsAction } from "../redux/actions"
 const MainSearch = () => {
   const [query, setQuery] = useState("")
   const dispatch = useDispatch()
-  const jobs = useSelector((state) => {
-    state.jobs.results
-  })
+  const jobs = useSelector((state) => state.jobs.results)
   const error = useSelector((state) => state.jobs.error)
 
   const handleChange = (e) => {

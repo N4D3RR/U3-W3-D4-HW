@@ -1,18 +1,18 @@
-import { Row, Col } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import { FaHeart, FaRegHeart } from 'react-icons/fa'
-import { useDispatch, useSelector } from 'react-redux'
+import { Row, Col } from "react-bootstrap"
+import { Link } from "react-router-dom"
+import { FaHeart, FaRegHeart } from "react-icons/fa"
+import { useDispatch, useSelector } from "react-redux"
 
 const Job = ({ data }) => {
   const dispatch = useDispatch()
-  const arrayDiFavs = useSelector((currentState) => {
-    return currentState.favs.content
+  const arrayDiFavs = useSelector((state) => {
+    return state.favs.content
   })
 
   return (
     <Row
       className="mx-0 mt-3 p-3"
-      style={{ border: '1px solid #00000033', borderRadius: 4 }}
+      style={{ border: "1px solid #00000033", borderRadius: 4 }}
     >
       <Col xs={4}>
         {
@@ -20,10 +20,10 @@ const Job = ({ data }) => {
           arrayDiFavs.includes(data.company_name) ? (
             <FaHeart
               className="me-2"
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
               onClick={() => {
                 dispatch({
-                  type: 'REMOVE_FROM_FAVS',
+                  type: "REMOVE_FROM_FAVS",
                   payload: data.company_name,
                 })
               }}
@@ -31,10 +31,10 @@ const Job = ({ data }) => {
           ) : (
             <FaRegHeart
               className="me-2"
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
               onClick={() => {
                 dispatch({
-                  type: 'ADD_TO_FAVS',
+                  type: "ADD_TO_FAVS",
                   payload: data.company_name,
                 })
               }}
